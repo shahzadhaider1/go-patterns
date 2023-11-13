@@ -1,4 +1,4 @@
-package main
+package patterns
 
 type OptFunc func(*Opts)
 
@@ -12,7 +12,7 @@ type Server struct {
 	Opts
 }
 
-func defaultOpts() Opts {
+func DefaultOpts() Opts {
 	return Opts{
 		id:      "1",
 		maxConn: 10,
@@ -20,24 +20,24 @@ func defaultOpts() Opts {
 	}
 }
 
-func withTLS(opts *Opts) {
+func WithTLS(opts *Opts) {
 	opts.tls = true
 }
 
-func withMaxConn(n int) OptFunc {
+func WithMaxConn(n int) OptFunc {
 	return func(opts *Opts) {
 		opts.maxConn = n
 	}
 }
 
-func withID(s string) OptFunc {
+func WithID(s string) OptFunc {
 	return func(opts *Opts) {
 		opts.id = s
 	}
 }
 
-func newServer(opts ...OptFunc) *Server {
-	o := defaultOpts()
+func NewServer(opts ...OptFunc) *Server {
+	o := DefaultOpts()
 	for _, fn := range opts {
 		fn(&o)
 	}
