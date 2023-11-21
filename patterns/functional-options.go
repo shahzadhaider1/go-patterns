@@ -45,3 +45,19 @@ func NewServer(opts ...OptFunc) *Server {
 		Opts: o,
 	}
 }
+
+//
+// main code:
+//
+//s := newServer(OptFunc(Opts{"10", 100, false}))
+//s := newServer()
+//fmt.Println("New Default Server : ", s)
+//s1 := patterns.NewServer(patterns.WithMaxConn(99))
+//fmt.Println("New Server with Max Conn : ", s1)
+//s2 := patterns.NewServer(patterns.WithTLS)
+//fmt.Println("New Server with TLS true : ", s2)
+//s3 := patterns.NewServer(patterns.WithID("id"))
+//fmt.Println("New Server with ID : ", s3)
+//s4 := patterns.NewServer(patterns.WithTLS, patterns.WithMaxConn(99), patterns.WithID("newID"))
+//fmt.Println("New Server with TLS true, ID and Max Conn : ", s4)
+//
